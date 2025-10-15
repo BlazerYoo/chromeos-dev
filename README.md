@@ -46,4 +46,5 @@ old_crouton: https://github.com/runeandre/crouton_for_the_oldbooks/raw/refs/head
 2. install firefox: `sudo apt install firefox`
 3. install curl: `sudo apt install curl`
 4. install nano: `sudo apt install nano`
-5. install vscode
+5. install git: `sudo apt-get install git`
+6. install vscode
