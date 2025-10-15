@@ -39,3 +39,11 @@ old_crouton: https://github.com/runeandre/crouton_for_the_oldbooks/raw/refs/head
 6. start chroot desktop: `sudo startxfce4` or `sudo startunity`
 7. switch between chrome os and chroot desktop: `Ctrl`+`Alt`+`Shift`+`Back` and `Ctrl`+`Alt`+`Shift`+`Forward`
 8. exit: log out or shutdown on chroot desktop or switch to chrome os and press `Ctrl`+`C`
+
+## setup
+
+1. refresh list: `sudo apt update`
+2. install firefox: `sudo apt install firefox`
+3. install curl: `sudo apt install curl`
+4. install nano: `sudo apt install nano`
+5. install vscode
