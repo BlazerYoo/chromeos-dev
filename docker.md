@@ -41,8 +41,8 @@ instructions adapted from: https://medium.com/@abiosoft/docker-on-chromebook-b96
         2. add `DOCKER_OPTS='-H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375'` before `command`
         3. restart docker: `service docker restart`
     4. in crouton env, [download](https://download.docker.com/linux/static/stable/x86_64/) and install docker client
-        1. `curl -L -o docker.tgz "https://download.docker.com/linux/static/stable/x86_64/docker-28.5.1.tgz"`
-        2. `tar xvfz docker-17.12.1-ce.tgz`
+        1. `curl -L -o docker-ce.tgz "https://download.docker.com/linux/static/stable/x86_64/docker-28.5.1.tgz"`
+        2. `tar xvfz docker-ce.tgz`
         3. `sudo mv docker/docker /usr/local/bin`
         4. `sudo chmod +x /usr/local/bin/docker`
         5. test it: `docker -H tcp://127.0.0.1:2375 ps`
