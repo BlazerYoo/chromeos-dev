@@ -55,4 +55,4 @@ old_crouton: https://github.com/runeandre/crouton_for_the_oldbooks/raw/refs/head
 7. vscode:
     1. `curl -L -o code.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"`
     2. `sudo apt install ./code.deb`
-8. docker: 
+8. docker: see [docker.md](https://github.com/BlazerYoo/chromeos-dev/blob/main/docker.md)
