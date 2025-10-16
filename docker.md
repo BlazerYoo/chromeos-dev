@@ -19,8 +19,9 @@ instructions adapted from: https://medium.com/@abiosoft/docker-on-chromebook-b96
         *  replace `-localtime` with `-rtc base=localtime`  
 4. install alpine on vm
     1. start vm for setup: `bash ./chromeos-qemu-docker/scripts/setup_alpine.sh`
-    2. after boot, run alpine setup: `setup-alpine` (can use defaults except selecting disk drive and keyboard layout)
-    3. exit vm: `Ctrl`+`A` `X`
+    2. enter `root` for `localhost login:`
+    3. after boot, run alpine setup: `setup-alpine` (can use defaults except selecting disk drive and keyboard layout)
+    4. exit vm: `Ctrl`+`A` `X`
 5. install docker in vm
     1. start vm: `bash ./chromeos-qemu-docker/scripts/start_persist.sh`
     2. install nano: `apk add --update nano`
