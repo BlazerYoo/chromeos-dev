@@ -9,7 +9,7 @@ instructions adapted from: https://medium.com/@abiosoft/docker-on-chromebook-b96
     1. create directory: `mkdir termux-docker && cd termux-docker`
     2. clone required repo: `git clone https://github.com/pwdonald/chromeos-qemu-docker`
     3. create 4GB virtual hard drive (adjust size based on available space): `qemu-img create -f qcow2 virtual_drive 4G`
-    4. [download](https://www.alpinelinux.org/downloads/) alpine linux iso: `curl -L -o alpine_x86_64.iso https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86_64/alpine-standard-3.22.2-x86_64.iso`
+    4. [download](https://www.alpinelinux.org/downloads/) alpine linux iso: `curl -L -o alpine_x86_64.iso https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86_64/alpine-virt-3.22.2-x86_64.iso`
 3. modify scripts:
     1.  `nano ./chromeos-qemu-docker/scripts/start_persist.sh`
         *  replace `qemu` with `qemu-system-x86_64`
@@ -21,12 +21,34 @@ instructions adapted from: https://medium.com/@abiosoft/docker-on-chromebook-b96
     1. start vm for setup: `bash ./chromeos-qemu-docker/scripts/setup_alpine.sh`
     2. enter `root` for `localhost login:`
     3. after boot, run alpine setup: `setup-alpine` (can use defaults except selecting disk drive and keyboard layout)
-    4. exit vm: `Ctrl`+`A` `X`
+    4. <details><summary>Click to see setup specs</summary>
+        
+        ```
+        [] - means default
+        1. system hostname (Enter system hostname): [localhost]
+        2. network interface (Which one do you want to initialize): [eth0]
+        3. ip address (Ip address for eth0): [dhcp]
+        4. manual network config (Do you want to do any manual network configuration): [n]
+        5. root password (New password)
+        6. timezone (Which timezone are you in): [UTC]
+        7. proxy (HTTP/FTP proxy URL): [none]
+        8. NTP client (Which NTP client to run): [busybox]
+        9. mirror (Enter mirror number of URL): [1] (find and use fastest mirror)
+        10. user (Setup a user): [no]
+        11. SSH server (Which ssh server): [openssh]
+        12. (Allow root ssh login): default is [prohibit-password] but yes
+        13. (Enter ssh key or URL for root): [none]
+        14. disk (Which disk(s) would you like to use?): default is [none] but sda
+        15. use disk (How would you like to use it): default is [?] but sys
+        16. erase disk (WARNING: Erase the above disk(s) and continue): default [n] but y
+        ```
+        </details>
+    5. exit vm: `Ctrl`+`A` `X`
 5. install docker in vm
     1. start vm: `bash ./chromeos-qemu-docker/scripts/start_persist.sh`
     2. install nano: `apk add --update nano`
     3. `nano /etc/apk/repositories`
-        * uncomment community repo (ie. remove `#` for `#http://mirrors.gigenet.com/alpinelinux/v3.7/community`)
+        * uncomment community repo (ie. remove `#` for `#http://dl-cdn.alpinelinux.org/alpine/v3.22/community`)
     4. install docker: `apk add --update docker`
     5. start docker: `service docker start`
     6. check status: `service docker status`
